@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Precio-Moneda</string>
+
+    <string name="text_button">agregar a la bolsa</string>
+    <string name="title_activity_drawer_menu">DrawerMenuActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
 </resources>

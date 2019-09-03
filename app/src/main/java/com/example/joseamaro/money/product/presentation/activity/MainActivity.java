@@ -2,8 +2,6 @@ package com.example.joseamaro.money.product.presentation.activity;
 
 
 
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 
 import com.core.presentation.activity.BaseFragmentActivity;
 import com.example.joseamaro.money.databinding.ActivityMainBinding;

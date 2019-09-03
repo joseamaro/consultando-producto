@@ -14,15 +14,18 @@
         <activity
             android:name=".product.presentation.activity.MainActivity"
             android:screenOrientation="portrait">
+
+        </activity>
+        <activity
+            android:name=".product_detail.presentation.activity.ProductDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".menu.presentation.activity.DrawerMenuActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".data_list.presentation.activity.ListMoneyActivity"
-            android:screenOrientation="portrait">
 
         </activity>
     </application>

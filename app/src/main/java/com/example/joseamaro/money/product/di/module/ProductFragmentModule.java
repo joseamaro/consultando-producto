@@ -8,6 +8,7 @@ import com.example.joseamaro.money.product.domain.usecase.GetSkuUseCase;
 import com.example.joseamaro.money.product.presentation.adapter.ProductAdapter;
 import com.example.joseamaro.money.product.presentation.contract.ProductContract;
 import com.example.joseamaro.money.product.presentation.presenter.ProductPresenter;
+import com.example.joseamaro.money.product_detail.presentation.fragment.ProductDetailFragment;
 
 import dagger.Module;
 import dagger.Provides;
@@ -26,6 +27,12 @@ public class ProductFragmentModule {
     @Provides
     ProductAdapter provideAdapter() {
         return new ProductAdapter();
+    }
+
+    @Provides
+    ProductDetailFragment provideProductDetailFragment(){
+
+        return new ProductDetailFragment();
     }
 
     @Provides

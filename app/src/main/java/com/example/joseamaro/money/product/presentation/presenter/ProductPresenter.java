@@ -1,6 +1,9 @@
 package com.example.joseamaro.money.product.presentation.presenter;
 
 
+import android.content.Context;
+import android.widget.Toast;
+
 import com.core.domain.usecase.UseCaseObserver;
 import com.example.joseamaro.money.product.domain.model.Product;
 import com.example.joseamaro.money.product.domain.usecase.GetCategoryUseCase;
@@ -49,13 +52,16 @@ public class ProductPresenter implements ProductContract.Presenter {
                 public void onNext(Product value) {
                     super.onNext(value);
                     products.add(value);
-                    view.displayProducts(products);
-                    view.showProgress(false);
+                    if (products.size() == 25) {
+                        view.displayProducts(products);
+                        view.showProgress(false);
+                    }
                 }
 
                 @Override
                 public void onError(Throwable e) {
                     super.onError(e);
+                    view.showMessage("Error al cargar productos");
                 }
             });
         }

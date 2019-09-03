@@ -2,8 +2,6 @@ package com.example.joseamaro.money.product.presentation.adapter;
 
 import android.graphics.Paint;
 import android.support.v7.widget.RecyclerView;
-import android.text.SpannableString;
-import android.text.style.UnderlineSpan;
 import android.view.View;
 
 import com.bumptech.glide.Glide;
@@ -12,7 +10,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.core.presentation.adapter.BaseListAdapter;
 import com.core.presentation.adapter.OnItemClickListener;
 import com.core.presentation.adapter.holder.BaseViewHolder;
-import com.example.joseamaro.money.databinding.FragmentDetailsProductBinding;
+import com.example.joseamaro.money.databinding.ItemDetailsProductBinding;
 import com.example.joseamaro.money.product.domain.model.Product;
 import com.example.joseamaro.money.R;
 
@@ -36,11 +34,10 @@ public class ProductAdapter extends BaseListAdapter<Product, ProductAdapter.Prod
 
     @Override
     protected int getLayoutIdByType(int viewType) {
-        return R.layout.fragment_details_product;
+        return R.layout.item_details_product;
     }
 
-
-    class ProductHolder extends BaseViewHolder<Product, FragmentDetailsProductBinding> {
+    class ProductHolder extends BaseViewHolder<Product, ItemDetailsProductBinding> {
 
         View view;
 
@@ -68,9 +65,18 @@ public class ProductAdapter extends BaseListAdapter<Product, ProductAdapter.Prod
                     .into(binder.ivProduct);
 
             binder.tvNameProduct.setText(item.name);
-            binder.tvPrice.setText(String.valueOf("$" + item.prices.listPrice));
-            binder.tvPrice.setPaintFlags(binder.tvPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-            binder.tvPriceDiscount.setText(String.valueOf("$" + item.prices.cardPrice));
+            if (item.prices.cardPrice == 0) {
+                binder.tvPrice.setText(String.valueOf("$" + item.prices.listPrice));
+                binder.tvPriceDiscount.setVisibility(View.GONE);
+                binder.ivCardRipley.setVisibility(View.GONE);
+            } else {
+                binder.tvPrice.setText(String.valueOf("$" + item.prices.listPrice));
+                binder.tvPrice.setPaintFlags(binder.tvPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+                binder.tvPriceDiscount.setVisibility(View.VISIBLE);
+                binder.tvPriceDiscount.setText(String.valueOf("$" + item.prices.cardPrice));
+                binder.ivCardRipley.setVisibility(View.VISIBLE);
+            }
+
         }
     }
 

@@ -101,6 +101,4 @@ public class ProductFragment extends BaseStackFragment<FragmentProductBinding> i
         addFragmentToStack(productDetailFragment);
     }
 
-
-
 }

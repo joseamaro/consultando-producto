@@ -11,6 +11,7 @@ import com.core.util.AndroidUtils;
 import com.example.joseamaro.money.databinding.ActivityDrawerMenuBinding;
 import com.example.joseamaro.money.R;
 import com.example.joseamaro.money.menu.di.component.DaggerDrawerMenuComponent;
+import com.example.joseamaro.money.menu.presentation.activity.contract.MenuContract;
 import com.example.joseamaro.money.product.domain.model.Product;
 import com.example.joseamaro.money.product.presentation.contract.ProductContract;
 import com.example.joseamaro.money.product.presentation.fragment.ProductFragment;
@@ -19,7 +20,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-public class DrawerMenuActivity extends BaseNavigationDrawerActivity<ActivityDrawerMenuBinding> {
+public class DrawerMenuActivity extends BaseNavigationDrawerActivity<ActivityDrawerMenuBinding> implements MenuContract.View {
 
     @Inject
     ProductFragment productFragment;
@@ -44,9 +45,6 @@ public class DrawerMenuActivity extends BaseNavigationDrawerActivity<ActivityDra
                 }
             }
         });
-
-
-
     }
 
     @Override
@@ -62,7 +60,26 @@ public class DrawerMenuActivity extends BaseNavigationDrawerActivity<ActivityDra
 
     @Override
     protected int getFragmentContainerId() {
-        return R.id.rl_menu_content;
+        return R.id.fragmentContainer;
     }
 
+    @Override
+    public void lockDrawer() {
+        drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+    }
+
+    @Override
+    public void unlockDrawer() {
+        drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
+    }
+
+    @Override
+    public void showProgress(boolean show) {
+
+    }
+
+    @Override
+    public void showMessage(String message) {
+
+    }
 }

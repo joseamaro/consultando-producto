@@ -1,7 +1,9 @@
 package com.example.joseamaro.money.product_detail.presentation.fragment;
 
+import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PagerSnapHelper;
@@ -13,6 +15,7 @@ import android.view.View;
 
 import com.core.presentation.fragment.BaseFragment;
 import com.example.joseamaro.money.menu.presentation.activity.DrawerMenuActivity;
+import com.example.joseamaro.money.menu.presentation.activity.contract.MenuContract;
 import com.example.joseamaro.money.product.domain.model.Attributes;
 import com.example.joseamaro.money.product.domain.model.Product;
 import com.example.joseamaro.money.product.presentation.activity.MainActivity;
@@ -43,6 +46,7 @@ public class ProductDetailFragment extends BaseFragment<FragmentDetailsProductsB
 
     private Product product;
     private int posImage = -1;
+    private MenuContract.View menuContract;
 
     @Override
     protected int getLayoutId() {
@@ -55,6 +59,7 @@ public class ProductDetailFragment extends BaseFragment<FragmentDetailsProductsB
         String jsonProduct = getArguments().getString("product");
         product = new Gson().fromJson(jsonProduct, Product.class);
         binder.rvImage.setAdapter(adapter);
+        menuContract.lockDrawer();
         binder.ivBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -120,7 +125,6 @@ public class ProductDetailFragment extends BaseFragment<FragmentDetailsProductsB
         }
     }
 
-
     public void displayCoupons() {
 
         final LinearLayoutManager mLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
@@ -145,15 +149,19 @@ public class ProductDetailFragment extends BaseFragment<FragmentDetailsProductsB
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-        Objects.requireNonNull(((AppCompatActivity) Objects.requireNonNull(getActivity())).getSupportActionBar()).hide();
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            menuContract = (MenuContract.View) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString() + " must implement MyInterface");
+        }
     }
+
 
     @Override
-    public void onStop() {
-        super.onStop();
-        Objects.requireNonNull(((AppCompatActivity) Objects.requireNonNull(getActivity())).getSupportActionBar()).show();
+    public void onDestroyView() {
+        super.onDestroyView();
+        menuContract.unlockDrawer();
     }
-
 }

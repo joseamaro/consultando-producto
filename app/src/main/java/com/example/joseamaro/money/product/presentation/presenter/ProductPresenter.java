@@ -61,7 +61,7 @@ public class ProductPresenter implements ProductContract.Presenter {
                 @Override
                 public void onError(Throwable e) {
                     super.onError(e);
-                    view.showMessage("Error al cargar productos");
+                    insertProduct();
                 }
             });
         }

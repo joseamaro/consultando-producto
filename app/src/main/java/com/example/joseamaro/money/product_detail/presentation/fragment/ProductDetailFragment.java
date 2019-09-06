@@ -3,22 +3,15 @@ package com.example.joseamaro.money.product_detail.presentation.fragment;
 import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PagerSnapHelper;
 import android.support.v7.widget.RecyclerView;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 
 import com.core.presentation.fragment.BaseFragment;
-import com.example.joseamaro.money.menu.presentation.activity.DrawerMenuActivity;
 import com.example.joseamaro.money.menu.presentation.activity.contract.MenuContract;
 import com.example.joseamaro.money.product.domain.model.Attributes;
 import com.example.joseamaro.money.product.domain.model.Product;
-import com.example.joseamaro.money.product.presentation.activity.MainActivity;
 import com.example.joseamaro.money.product_detail.di.component.DaggerProductDetailFragmentComponent;
 import com.example.joseamaro.money.product_detail.presentation.Utils.CirclePagerIndicatorDecoration;
 import com.example.joseamaro.money.product_detail.presentation.adapter.ProductDetailAdapter;
@@ -26,8 +19,6 @@ import com.example.joseamaro.money.product_detail.presentation.contract.ProductD
 import com.example.joseamaro.money.databinding.FragmentDetailsProductsBinding;
 import com.example.joseamaro.money.R;
 import com.google.gson.Gson;
-
-import java.util.Objects;
 
 import javax.inject.Inject;
 

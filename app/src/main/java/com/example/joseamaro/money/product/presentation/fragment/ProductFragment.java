@@ -2,7 +2,6 @@ package com.example.joseamaro.money.product.presentation.fragment;
 
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
@@ -12,7 +11,6 @@ import com.core.presentation.adapter.OnItemClickListener;
 import com.core.presentation.fragment.BaseStackFragment;
 import com.example.joseamaro.money.R;
 import com.example.joseamaro.money.databinding.FragmentProductBinding;
-import com.example.joseamaro.money.menu.presentation.activity.DrawerMenuActivity;
 import com.example.joseamaro.money.product.di.component.DaggerProductFragmentComponent;
 import com.example.joseamaro.money.product.domain.model.Product;
 import com.example.joseamaro.money.product.presentation.adapter.ProductAdapter;
@@ -21,7 +19,6 @@ import com.example.joseamaro.money.product_detail.presentation.fragment.ProductD
 import com.google.gson.Gson;
 
 import java.util.List;
-import java.util.Objects;
 
 import javax.inject.Inject;
 

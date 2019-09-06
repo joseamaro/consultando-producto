@@ -3,7 +3,6 @@ package com.example.joseamaro.money.menu.presentation.activity;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.core.presentation.activity.BaseNavigationDrawerActivity;
@@ -12,8 +11,6 @@ import com.example.joseamaro.money.databinding.ActivityDrawerMenuBinding;
 import com.example.joseamaro.money.R;
 import com.example.joseamaro.money.menu.di.component.DaggerDrawerMenuComponent;
 import com.example.joseamaro.money.menu.presentation.activity.contract.MenuContract;
-import com.example.joseamaro.money.product.domain.model.Product;
-import com.example.joseamaro.money.product.presentation.contract.ProductContract;
 import com.example.joseamaro.money.product.presentation.fragment.ProductFragment;
 
 import java.util.List;

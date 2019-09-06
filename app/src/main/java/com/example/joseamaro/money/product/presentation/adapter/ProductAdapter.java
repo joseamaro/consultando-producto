@@ -14,6 +14,9 @@ import com.example.joseamaro.money.databinding.ItemDetailsProductBinding;
 import com.example.joseamaro.money.product.domain.model.Product;
 import com.example.joseamaro.money.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by joseamaro on 22-08-19.
  */
@@ -21,6 +24,9 @@ import com.example.joseamaro.money.R;
 public class ProductAdapter extends BaseListAdapter<Product, ProductAdapter.ProductHolder> {
 
     private OnItemClickListener<Product> onItemClickListener;
+
+    private List<Product> listProduct = new ArrayList<>();
+
 
     @Override
     protected RecyclerView.ViewHolder createViewHolder(int viewType, View v) {
@@ -30,6 +36,10 @@ public class ProductAdapter extends BaseListAdapter<Product, ProductAdapter.Prod
 
     public void setOnItemClickListener(OnItemClickListener<Product> onItemClickListener) {
         this.onItemClickListener = onItemClickListener;
+    }
+
+    public void setListProduct(List<Product> products){
+        this.listProduct.addAll(listProduct);
     }
 
     @Override
@@ -78,6 +88,23 @@ public class ProductAdapter extends BaseListAdapter<Product, ProductAdapter.Prod
             }
 
         }
+
+/*
+        public void filter(String text) {
+            list.clear();
+            if (text.isEmpty()) {
+                list.addAll(listMoney);
+            } else {
+                text = text.toLowerCase();
+                for (Money money : listMoney) {
+                    if (money.codigo.toLowerCase().contains(text)) {
+                        list.add(money);
+                    }
+                }
+            }
+            notifyDataSetChanged();
+        }*/
+
     }
 
 }

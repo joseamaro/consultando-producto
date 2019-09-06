@@ -4,7 +4,7 @@ import com.core.presentation.contract.IProgressView;
 
 public interface MenuContract {
     interface View extends IProgressView {
-        public void lockDrawer();
-        public void unlockDrawer();
+        void lockDrawer();
+        void unlockDrawer();
     }
 }

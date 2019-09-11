@@ -5,6 +5,7 @@ import android.content.Context;
 import android.widget.Toast;
 
 import com.core.domain.usecase.UseCaseObserver;
+import com.example.joseamaro.money.product.domain.model.Category;
 import com.example.joseamaro.money.product.domain.model.Product;
 import com.example.joseamaro.money.product.domain.usecase.GetCategoryUseCase;
 import com.example.joseamaro.money.product.domain.usecase.GetProductUseCase;
@@ -67,6 +68,7 @@ public class ProductPresenter implements ProductContract.Presenter {
         }
 
     }
+
 }
 
 
